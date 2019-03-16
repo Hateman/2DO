@@ -8,53 +8,56 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
-
-.button{
-    margin: auto;
+{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  box-sizing: border-box;
 }
-.center { 
-    align: center; 
+body {
+  background: #34495e;
+}
+.app-wrapper {
+  display: flex;
+  flex-direction: column;  /* расположить елементы вертикально один за другим */
+  justify-content: center;
+  align-items: center; 
+  margin: 10rem auto;
+  color: #fff;
+}
+.app-wrapper p{
+    font-size: 30px;
+  }
+.app-wrapper input {
+  padding: 5px 10px;
+  margin-top: 10px;
+  font-size: 1em;
+  border-radius: 2px;
+}
+.app-wrapper button {
+  background: #4e123f;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1em;
+  letter-spacing: 0.2em;
+  margin-top: 10px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+.app-wrapper button:hover {
+  background: #2980b9;
 }
     </style>  
     
     </head>
 <body>
-<div id="app1">
-  <div class="container">
-   <header><h1> {{ title }} </h1></header>
-   <form class="form">
-     <div class="input-group mb-3">
-       <input type="text" class="form-control" placeholder="New Task" id="itemForm">
-       <div class="input-group-append">
-         <!-- <button class="btn btn-outline-secondary" v-on:click="addItem" type="button">Add Task</button> -->
-         <button class="btn btn-primary" v-on:click="addItem" type="button">Add Task</button>
-       </div>
-     </div>
-   </form>
-   
-   <table class="table table-striped table-dark">
-     
-    <thead>
-       <tr>
-         <th scope="col">Tasks</th>
-       </tr>
-     </thead>
+<div id="app" class="app-wrapper">
+  <p>{{ message }}</p>
+  <input type="text" placeholder="Enter text" v-model="message">
+  <button v-on:click="reverseMessage" >Reverse message</button>
 
-     <tbody>
-       <tr v-for="(item,index) in items">
-        <!-- <th scope="row">{{item.text}}<button v-on:click="deleteItem(index)" class="btn btn-danger">X</button></th> -->
-        <th scope="row" width="95%">{{item.text}}</th>
-        <th><button v-on:click="deleteItem(index)" class="btn btn-danger" >Remove</button></th>
-        <!-- <th scope="row">{{item.text}} <div class="button" v-on:click="deleteItem(index)" class="center">X</div></th> -->
-       </tr>
-     </tbody>
-
-   </table>
-
-
-
-
-  </div>
 </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
